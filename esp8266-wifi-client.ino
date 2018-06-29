@@ -5,9 +5,9 @@ extern "C" {
 #include "user_interface.h"
 }
 
-/* Replace values in String constructor below with your network credentials */
-const String STA_SSID = String("SSID"); // Network SSID
-const String STA_PASS = String("PASSWORD"); // Network password
+/* Replace values below with your network credentials */
+char sta_ssid[] = "SSID"; // Network SSID
+char sta_pass[] = "PASSWORD"; // Network password
 
 void setup() {
   Serial.begin(74880);
@@ -17,9 +17,9 @@ void setup() {
   WiFi.mode(WIFI_STA);
   
   Serial.print("Connecting to network ");
-  Serial.println(STA_SSID);
+  Serial.println(sta_ssid);
   
-  WiFi.begin(STA_SSID, STA_PASS);
+  WiFi.begin(sta_ssid, sta_pass);
   while (WiFi.status() != WL_CONNECTED) {
         delay(500);
   }
